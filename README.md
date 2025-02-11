@@ -6,7 +6,8 @@ For riscv, you may add `-DPICO_GCC_TRIPLE=riscv64-unknown-elf` to the cmake comm
 
 - `git submodule update --init lib/micropython`
 - `git submodule update --init lib/pico-ice-mpy-module`
-- `make -C lib/micropython/mpy-cross`
+- `cd lib/pico-ice-mpy-module && git submodule update --init pico-ice-sdk && cd ../..`
+- `make -C lib/micropython/mpy-cross -j4`
 - `make -C lib/micropython/ports/rp2 submodules`
 - `cd boards/PICO_ICE`
 - `mkdir build && cd build`
