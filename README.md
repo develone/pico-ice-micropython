@@ -20,6 +20,8 @@ This is a spurious pico-sdk error, if it happens, leave and delete the build dir
 
 # To use
 
-`import board
-dir(board)`
+```
+import board
+dir(board)
+```
 To see the peripherals already setup for you
