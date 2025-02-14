@@ -18,6 +18,8 @@
 /* FPGA UART */
 #define MICROPY_HW_UART0_TX		(0)
 #define MICROPY_HW_UART0_RX		(1)
+#define MICROPY_HW_UART0_CTS	(2)
+#define MICROPY_HW_UART0_RTS	(3)
 /* FPGA SPI */
 #define MICROPY_HW_SPI1_SCK		(10)
 #define MICROPY_HW_SPI1_MOSI	(11)
