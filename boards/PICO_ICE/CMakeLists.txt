@@ -20,6 +20,7 @@ endif()
 
 include(${MICROPY_BOARD_DIR}/mpconfigboard.cmake)
 add_subdirectory(${MICROPY_PORT_DIR} micropython)
+add_dependencies(BUILD_VERSION_HEADER pioasm)
 
 project(micropython)
 
