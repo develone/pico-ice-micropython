@@ -21,8 +21,21 @@ This is a spurious pico-sdk error, if it happens, leave and delete the build dir
 
 # To use
 
+- pico2-ice: 
+```python
+from machine import Pin
+import ice
+fpga = ice.fpga(cdone=Pin(40), clock=Pin(21), creset=Pin(31), cram_cs=Pin(5), cram_mosi=Pin(4), cram_sck=Pin(6), frequency=48)
+file = open("bitstream.bin", "br")
+fpga.start()
+fpga.cram(file)
 ```
-import board
-dir(board)
+- pico-ice:
+```python
+from machine import Pin
+import ice
+fpga = ice.fpga(cdone=Pin(26), clock=Pin(24), creset=Pin(27), cram_cs=Pin(9), cram_mosi=Pin(8), cram_sck=Pin(10), frequency=48)
+file = open("bitstream.bin", "br")
+fpga.start()
+fpga.cram(file)
 ```
-To see the peripherals already setup for you
