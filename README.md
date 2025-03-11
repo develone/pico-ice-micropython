@@ -20,27 +20,6 @@ For riscv, you may add `-DPICO_GCC_TRIPLE=riscv64-unknown-elf` to the cmake comm
 This is a spurious pico-sdk error, if it happens, leave and delete the build directory, close your terminal, and repeat the process from mkdir.
 
 # To use
-
-- pico2-ice: 
-```python
-from machine import Pin
-import ice
-fpga = ice.fpga(cdone=Pin(40), clock=Pin(21), creset=Pin(31), cram_cs=Pin(5), cram_mosi=Pin(4), cram_sck=Pin(6), frequency=48)
-file = open("bitstream.bin", "br")
-fpga.start()
-fpga.cram(file)
-```
-- pico-ice:
-```python
-from machine import Pin
-import ice
-fpga = ice.fpga(cdone=Pin(26), clock=Pin(24), creset=Pin(27), cram_cs=Pin(9), cram_mosi=Pin(8), cram_sck=Pin(10), frequency=48)
-file = open("bitstream.bin", "br")
-fpga.start()
-fpga.cram(file)
-```
-
-# To use
 The API to use the FPGA is as follow:
 - `ice` is the microypthon module: `import ice`
 - `fpga` is the class provided by the module to manage the ICE40 FPGA `ice.fpga(...)`
