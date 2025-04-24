@@ -320,30 +320,12 @@ drwxr-xr-x 3 devel devel   4096 Apr 24 14:17 pioasm-install
 
 devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ mkdir pico-ice
 devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ mkdir build && cd build
-cmake -DPICO_BOARD=pico_ice ..
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/pico-ice/build $ cmake -DPICO_BOARD=pico_ice ../..
 PICO_SDK_PATH is /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk
 Target board (PICO_BOARD) is 'pico_ice'.
 Using board configuration from /home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/pico-ice-sdk/include/boards/pico_ice.h
-Defaulting platform (PICO_PLATFORM) to 'rp2040' since not specified.
-Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m0plus_gcc' since not specified.
-Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
-Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
--- The C compiler identification is GNU 12.2.1
--- The CXX compiler identification is GNU 12.2.1
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/arm-none-eabi-g++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- The ASM compiler identification is GNU
--- Found assembler: /usr/bin/arm-none-eabi-gcc
+Pico Platform (PICO_PLATFORM) is 'rp2040'.
 Build type is MinSizeRel
--- Found Python3: /usr/bin/python3 (found version "3.11.2") found components: Interpreter 
 TinyUSB available at /home/devel/pico-ice-micropython/lib/micropython/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
 CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_btstack/CMakeLists.txt:14 (message):
   PICO_BTSTACK_PATH specified but content not present.
@@ -357,28 +339,37 @@ Including User C Module(s) from /home/devel/pico-ice-micropython/lib/pico-ice-mp
 Found User C Module(s): ice-module
 System is unknown to cmake, create:
 Platform/PICO to use this system, please post your config file on discourse.cmake.org so it can be added to cmake
+Your CMakeCache.txt file was copied to CopyOfCMakeCache.txt. Please post that file on discourse.cmake.org.
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/devel/pico-ice-micropython/boards/PICO_ICE/build
-devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $ make -j8
-devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $ ls -la
-total 1232
-drwxr-xr-x 9 devel devel   4096 Apr 24 14:34 .
-drwxr-xr-x 6 devel devel   4096 Apr 24 14:29 ..
--rw-r--r-- 1 devel devel  30014 Apr 24 14:32 CMakeCache.txt
--rw-r--r-- 1 devel devel  14786 Apr 24 14:32 CMakeDoxyfile.in
--rw-r--r-- 1 devel devel  20369 Apr 24 14:32 CMakeDoxygenDefaults.cmake
-drwxr-xr-x 6 devel devel   4096 Apr 24 14:34 CMakeFiles
--rw-r--r-- 1 devel devel   1743 Apr 24 14:32 cmake_install.cmake
--rw-r--r-- 1 devel devel 685568 Apr 24 14:34 firmware.uf2
--rw-r--r-- 1 devel devel 425345 Apr 24 14:33 frozen_content.c
-drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 frozen_mpy
-drwxr-xr-x 3 devel devel   4096 Apr 24 14:32 generated
-drwxr-xr-x 5 devel devel   4096 Apr 24 14:33 genhdr
--rw-r--r-- 1 devel devel   9068 Apr 24 14:32 Makefile
-drwxr-xr-x 5 devel devel   4096 Apr 24 14:34 micropython
--rw-r--r-- 1 devel devel     58 Apr 24 14:32 pico_flash_region.ld
--rw-r--r-- 1 devel devel  16832 Apr 24 14:33 pins_pico_ice.c
-drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 pioasm
-drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 pioasm-install
+-- Build files have been written to: /home/devel/pico-ice-micropython/boards/PICO_ICE/pico-ice/build 
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/pico-ice/build $ make -j8
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/pico-ice/build $ ls -la
+total 1264
+drwxr-xr-x 9 devel devel   4096 Apr 24 16:20 .
+drwxr-xr-x 3 devel devel   4096 Apr 24 16:16 ..
+-rw-r--r-- 1 devel devel  30247 Apr 24 16:18 CMakeCache.txt
+-rw-r--r-- 1 devel devel  14786 Apr 24 16:18 CMakeDoxyfile.in
+-rw-r--r-- 1 devel devel  20369 Apr 24 16:18 CMakeDoxygenDefaults.cmake
+drwxr-xr-x 5 devel devel   4096 Apr 24 16:21 CMakeFiles
+-rw-r--r-- 1 devel devel   1761 Apr 24 16:16 cmake_install.cmake
+-rw-r--r-- 1 devel devel  30095 Apr 24 16:18 CopyOfCMakeCache.txt
+-rw-r--r-- 1 devel devel 685568 Apr 24 16:20 firmware.uf2
+-rw-r--r-- 1 devel devel 425480 Apr 24 16:20 frozen_content.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 16:20 frozen_mpy
+drwxr-xr-x 3 devel devel   4096 Apr 24 16:16 generated
+drwxr-xr-x 5 devel devel   4096 Apr 24 16:20 genhdr
+-rw-r--r-- 1 devel devel   9104 Apr 24 16:18 Makefile
+drwxr-xr-x 5 devel devel   4096 Apr 24 16:20 micropython
+-rw-r--r-- 1 devel devel     58 Apr 24 16:16 pico_flash_region.ld
+-rw-r--r-- 1 devel devel  16832 Apr 24 16:20 pins_pico_ice.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 16:20 pioasm
+drwxr-xr-x 3 devel devel   4096 Apr 24 16:20 pioasm-install
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/pico-ice/build $ cp firmware.uf2 ~/master-repos/pico-ice-micropython/pico-ice-uf2/
+devel@pi5-90:~/master-repos/pico-ice-micropython $ git add pico-ice-uf2/firmware.uf2
+devel@pi5-90:~/master-repos/pico-ice-micropython $ git commit pico-ice-uf2/firmware.uf2 
+devel@pi5-90:~/master-repos/pico-ice-micropython $ git push
+
 
