@@ -1,0 +1,384 @@
+04/24/25 updated main & test-dev branches
+https://github.com/develone/pico-ice-micropython/tree/test-dev#
+devel@pi5-90:~ $ git clone https://github.com/develone/pico-ice-micropython.git -b test-dev
+devel@pi5-90:~ $ cd pico-ice-micropython/
+devel@pi5-90:~ $ git clone https://github.com/develone/pico-ice-micropython.git -b test-dev
+Cloning into 'pico-ice-micropython'...
+remote: Enumerating objects: 60, done.
+remote: Counting objects: 100% (60/60), done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 60 (delta 20), reused 49 (delta 12), pack-reused 0 (from 0)
+Receiving objects: 100% (60/60), 8.89 KiB | 8.89 MiB/s, done.
+Resolving deltas: 100% (20/20), done.
+devel@pi5-90:~ $ cd lib/pico-ice-mpy-module && git submodule update --init pico-ice-sdk && cd ../..
+bash: cd: lib/pico-ice-mpy-module: No such file or directory
+devel@pi5-90:~ $ cd pico-ice-micropython/
+devel@pi5-90:~/pico-ice-micropython $ git submodule update --init lib/micropython
+Submodule 'lib/micropython' (https://github.com/micropython/micropython.git) registered for path 'lib/micropython'
+Cloning into '/home/devel/pico-ice-micropython/lib/micropython'...
+Submodule path 'lib/micropython': checked out 'f498a16c7db6d4b2de200b3e0856528dfe0613c3'
+devel@pi5-90:~/pico-ice-micropython $ git submodule update --init lib/pico-ice-mpy-module
+Submodule 'lib/pico-ice-mpy-module' (https://github.com/tinyvision-ai-inc/pico-ice-mpy-module.git) registered for path 'lib/pico-ice-mpy-module'
+Cloning into '/home/devel/pico-ice-micropython/lib/pico-ice-mpy-module'...
+Submodule path 'lib/pico-ice-mpy-module': checked out '000ae94d480786e26acebacbdc5aa11b3918f8f3'
+devel@pi5-90:~/pico-ice-micropython $ cd lib/pico-ice-mpy-module && git submodule update --init pico-ice-sdk && cd ../..
+Submodule 'pico-ice-sdk' (https://github.com/tinyvision-ai-inc/pico-ice-sdk.git) registered for path 'pico-ice-sdk'
+Cloning into '/home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/pico-ice-sdk'...
+Submodule path 'pico-ice-sdk': checked out 'cdf62bdc6c9a086d35cd950732ce613052415aa9'
+devel@pi5-90:~/pico-ice-micropython $ make -C lib/micropython/mpy-cross -j4
+make: Entering directory '/home/devel/pico-ice-micropython/lib/micropython/mpy-cross'
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+mkdir -p build/genhdr
+mkdir -p build/py/
+mkdir -p build/shared/runtime/
+GEN build/genhdr/mpversion.h
+GEN build/genhdr/qstr.i.last
+GEN build/genhdr/moduledefs.split
+GEN build/genhdr/qstr.split
+GEN build/genhdr/root_pointers.split
+GEN build/genhdr/moduledefs.collected
+GEN build/genhdr/root_pointers.collected
+GEN build/genhdr/qstrdefs.collected.h
+Root pointer registrations updated
+Module registrations updated
+GEN build/genhdr/moduledefs.h
+GEN build/genhdr/root_pointers.h
+QSTR updated
+GEN build/genhdr/qstrdefs.generated.h
+CC ../py/mpstate.c
+CC ../py/nlr.c
+CC ../py/nlrx86.c
+CC ../py/nlrx64.c
+CC ../py/nlrthumb.c
+CC ../py/nlraarch64.c
+CC ../py/nlrmips.c
+CC ../py/nlrpowerpc.c
+CC ../py/nlrxtensa.c
+CC ../py/nlrrv32.c
+CC ../py/nlrrv64.c
+CC ../py/nlrsetjmp.c
+CC ../py/malloc.c
+CC ../py/gc.c
+CC ../py/pystack.c
+CC ../py/qstr.c
+CC ../py/vstr.c
+CC ../py/mpprint.c
+CC ../py/unicode.c
+CC ../py/mpz.c
+CC ../py/reader.c
+CC ../py/lexer.c
+CC ../py/parse.c
+CC ../py/scope.c
+CC ../py/compile.c
+CC ../py/emitcommon.c
+CC ../py/emitbc.c
+CC ../py/asmbase.c
+CC ../py/asmx64.c
+CC ../py/emitnx64.c
+CC ../py/asmx86.c
+CC ../py/emitnx86.c
+CC ../py/asmthumb.c
+CC ../py/emitnthumb.c
+CC ../py/emitinlinethumb.c
+CC ../py/asmarm.c
+CC ../py/emitnarm.c
+CC ../py/asmxtensa.c
+CC ../py/emitnxtensa.c
+CC ../py/emitinlinextensa.c
+CC ../py/emitnxtensawin.c
+CC ../py/asmrv32.c
+CC ../py/emitnrv32.c
+CC ../py/emitinlinerv32.c
+CC ../py/emitndebug.c
+CC ../py/formatfloat.c
+CC ../py/parsenumbase.c
+CC ../py/parsenum.c
+CC ../py/emitglue.c
+CC ../py/persistentcode.c
+CC ../py/runtime.c
+CC ../py/runtime_utils.c
+CC ../py/scheduler.c
+CC ../py/nativeglue.c
+CC ../py/pairheap.c
+CC ../py/ringbuf.c
+CC ../py/cstack.c
+CC ../py/stackctrl.c
+CC ../py/argcheck.c
+CC ../py/warning.c
+CC ../py/profile.c
+CC ../py/map.c
+CC ../py/obj.c
+CC ../py/objarray.c
+CC ../py/objattrtuple.c
+CC ../py/objbool.c
+CC ../py/objboundmeth.c
+CC ../py/objcell.c
+CC ../py/objclosure.c
+CC ../py/objcode.c
+CC ../py/objcomplex.c
+CC ../py/objdeque.c
+CC ../py/objdict.c
+CC ../py/objenumerate.c
+CC ../py/objexcept.c
+CC ../py/objfilter.c
+CC ../py/objfloat.c
+CC ../py/objfun.c
+CC ../py/objgenerator.c
+CC ../py/objgetitemiter.c
+CC ../py/objint.c
+CC ../py/objint_longlong.c
+CC ../py/objint_mpz.c
+CC ../py/objlist.c
+CC ../py/objmap.c
+CC ../py/objmodule.c
+CC ../py/objobject.c
+CC ../py/objpolyiter.c
+CC ../py/objproperty.c
+CC ../py/objnone.c
+CC ../py/objnamedtuple.c
+CC ../py/objrange.c
+CC ../py/objreversed.c
+CC ../py/objringio.c
+CC ../py/objset.c
+CC ../py/objsingleton.c
+CC ../py/objslice.c
+CC ../py/objstr.c
+CC ../py/objstrunicode.c
+CC ../py/objstringio.c
+CC ../py/objtuple.c
+CC ../py/objtype.c
+CC ../py/objzip.c
+CC ../py/opmethods.c
+CC ../py/sequence.c
+CC ../py/stream.c
+CC ../py/binary.c
+CC ../py/builtinimport.c
+CC ../py/builtinevex.c
+CC ../py/builtinhelp.c
+CC ../py/modarray.c
+CC ../py/modbuiltins.c
+CC ../py/modcollections.c
+CC ../py/modgc.c
+CC ../py/modio.c
+CC ../py/modmath.c
+CC ../py/modcmath.c
+CC ../py/modmicropython.c
+CC ../py/modstruct.c
+CC ../py/modsys.c
+CC ../py/moderrno.c
+CC ../py/modthread.c
+CC ../py/vm.c
+CC ../py/bc.c
+CC ../py/showbc.c
+CC ../py/repl.c
+CC ../py/smallint.c
+CC ../py/frozenmod.c
+CC main.c
+CC gccollect.c
+CC ../shared/runtime/gchelper_generic.c
+LINK build/mpy-cross
+   text	   data	    bss	    dec	    hex	filename
+ 480750	  17624	    840	 499214	  79e0e	build/mpy-cross
+make: Leaving directory '/home/devel/pico-ice-micropython/lib/micropython/mpy-cross'
+
+devel@pi5-90:~/pico-ice-micropython $ make -C lib/micropython/ports/rp2 submodules
+make: Entering directory '/home/devel/pico-ice-micropython/lib/micropython/ports/rp2'
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+make[1]: Entering directory '/home/devel/pico-ice-micropython/lib/micropython/ports/rp2'
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+Updating submodules: lib/pico-sdk
+Submodule 'lib/pico-sdk' (https://github.com/raspberrypi/pico-sdk.git) registered for path 'lib/pico-sdk'
+Cloning into '/home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk'...
+remote: Enumerating objects: 1106, done.
+remote: Counting objects: 100% (621/621), done.
+remote: Compressing objects: 100% (520/520), done.
+remote: Total 1106 (delta 217), reused 101 (delta 101), pack-reused 485 (from 2)
+Receiving objects: 100% (1106/1106), 2.20 MiB | 7.59 MiB/s, done.
+Resolving deltas: 100% (332/332), done.
+Submodule path 'lib/pico-sdk': checked out 'bddd20f928ce76142793bef434d4f75f4af6e433'
+make[1]: Leaving directory '/home/devel/pico-ice-micropython/lib/micropython/ports/rp2'
+PICO_SDK_PATH is /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk
+Target board (PICO_BOARD) is 'pico'.
+Using board configuration from /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/boards/include/boards/pico.h
+Pico Platform (PICO_PLATFORM) is 'rp2040'.
+Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m0plus_gcc' since not specified.
+Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
+Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
+-- The C compiler identification is GNU 12.2.1
+-- The CXX compiler identification is GNU 12.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/arm-none-eabi-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+Build type is MinSizeRel
+-- Found Python3: /usr/bin/python3 (found version "3.11.2") found components: Interpreter 
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/tinyusb/CMakeLists.txt:14 (message):
+  PICO_TINYUSB_PATH specified but content not present.
+
+
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_btstack/CMakeLists.txt:14 (message):
+  PICO_BTSTACK_PATH specified but content not present.
+
+
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_lwip/CMakeLists.txt:14 (message):
+  PICO_LWIP_PATH specified but content not present.
+
+
+Found User C Module(s): 
+Updating submodules: lib/mbedtls lib/tinyusb lib/micropython-lib
+Submodule 'lib/mbedtls' (https://github.com/ARMmbed/mbedtls.git) registered for path 'lib/mbedtls'
+Submodule 'lib/micropython-lib' (https://github.com/micropython/micropython-lib.git) registered for path 'lib/micropython-lib'
+Submodule 'lib/tinyusb' (https://github.com/hathach/tinyusb) registered for path 'lib/tinyusb'
+Cloning into '/home/devel/pico-ice-micropython/lib/micropython/lib/mbedtls'...
+Cloning into '/home/devel/pico-ice-micropython/lib/micropython/lib/micropython-lib'...
+Cloning into '/home/devel/pico-ice-micropython/lib/micropython/lib/tinyusb'...
+Submodule path 'lib/mbedtls': checked out '107ea89daaefb9867ea9121002fbbdf926780e98'
+Submodule path 'lib/micropython-lib': checked out '5b496e944ec045177afa1620920a168410b7f60b'
+Submodule path 'lib/tinyusb': checked out '5217cee5de4cd555018da90f9f1bcc87fb1c1d3a'
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/devel/pico-ice-micropython/lib/micropython/ports/rp2/build-RPI_PICO/submodules
+make: Leaving directory '/home/devel/pico-ice-micropython/lib/micropython/ports/rp2'
+
+devel@pi5-90:~/pico-ice-micropython $ cd boards/PICO_ICE/
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ mkdir pico2-ice
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ cd pico2-ice
+mkdir build && cd build
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $ cmake -DPICO_BOARD=pico2_ice ..
+PICO_SDK_PATH is /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk
+Target board (PICO_BOARD) is 'pico2_ice'.
+Using board configuration from /home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/pico-ice-sdk/include/boards/pico2_ice.h
+Pico Platform (PICO_PLATFORM) is 'rp2350-arm-s'.
+Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m33_gcc' since not specified.
+Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m33_gcc'
+Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
+-- The C compiler identification is GNU 12.2.1
+-- The CXX compiler identification is GNU 12.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/arm-none-eabi-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+Build type is MinSizeRel
+-- Found Python3: /usr/bin/python3 (found version "3.11.2") found components: Interpreter 
+TinyUSB available at /home/devel/pico-ice-micropython/lib/micropython/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_btstack/CMakeLists.txt:14 (message):
+  PICO_BTSTACK_PATH specified but content not present.
+
+
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_lwip/CMakeLists.txt:14 (message):
+  PICO_LWIP_PATH specified but content not present.
+
+
+Including User C Module(s) from /home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/micropython.cmake
+Found User C Module(s): ice-module
+System is unknown to cmake, create:
+Platform/PICO to use this system, please post your config file on discourse.cmake.org so it can be added to cmake
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/devel/pico-ice-micropython/boards/PICO_ICE/build
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $  make -j8
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/pico2-ice/build $ ls -la
+total 1220
+drwxr-xr-x 9 devel devel   4096 Apr 24 14:19 .
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:22 ..
+-rw-r--r-- 1 devel devel  30880 Apr 24 14:16 CMakeCache.txt
+-rw-r--r-- 1 devel devel  14786 Apr 24 14:16 CMakeDoxyfile.in
+-rw-r--r-- 1 devel devel  20369 Apr 24 14:16 CMakeDoxygenDefaults.cmake
+drwxr-xr-x 6 devel devel   4096 Apr 24 14:19 CMakeFiles
+-rw-r--r-- 1 devel devel   1743 Apr 24 14:16 cmake_install.cmake
+-rw-r--r-- 1 devel devel 672768 Apr 24 14:19 firmware.uf2
+-rw-r--r-- 1 devel devel 425345 Apr 24 14:17 frozen_content.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:17 frozen_mpy
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:16 generated
+drwxr-xr-x 5 devel devel   4096 Apr 24 14:17 genhdr
+-rw-r--r-- 1 devel devel   9068 Apr 24 14:16 Makefile
+drwxr-xr-x 5 devel devel   4096 Apr 24 14:18 micropython
+-rw-r--r-- 1 devel devel     58 Apr 24 14:16 pico_flash_region.ld
+-rw-r--r-- 1 devel devel  19730 Apr 24 14:17 pins_pico_ice.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:17 pioasm
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:17 pioasm-install
+
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ mkdir pico-ice
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE $ mkdir build && cd build
+cmake -DPICO_BOARD=pico_ice ..
+PICO_SDK_PATH is /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk
+Target board (PICO_BOARD) is 'pico_ice'.
+Using board configuration from /home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/pico-ice-sdk/include/boards/pico_ice.h
+Defaulting platform (PICO_PLATFORM) to 'rp2040' since not specified.
+Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m0plus_gcc' since not specified.
+Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
+Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
+-- The C compiler identification is GNU 12.2.1
+-- The CXX compiler identification is GNU 12.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/arm-none-eabi-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+Build type is MinSizeRel
+-- Found Python3: /usr/bin/python3 (found version "3.11.2") found components: Interpreter 
+TinyUSB available at /home/devel/pico-ice-micropython/lib/micropython/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_btstack/CMakeLists.txt:14 (message):
+  PICO_BTSTACK_PATH specified but content not present.
+
+
+CMake Warning at /home/devel/pico-ice-micropython/lib/micropython/lib/pico-sdk/src/rp2_common/pico_lwip/CMakeLists.txt:14 (message):
+  PICO_LWIP_PATH specified but content not present.
+
+
+Including User C Module(s) from /home/devel/pico-ice-micropython/lib/pico-ice-mpy-module/micropython.cmake
+Found User C Module(s): ice-module
+System is unknown to cmake, create:
+Platform/PICO to use this system, please post your config file on discourse.cmake.org so it can be added to cmake
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/devel/pico-ice-micropython/boards/PICO_ICE/build
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $ make -j8
+devel@pi5-90:~/pico-ice-micropython/boards/PICO_ICE/build $ ls -la
+total 1232
+drwxr-xr-x 9 devel devel   4096 Apr 24 14:34 .
+drwxr-xr-x 6 devel devel   4096 Apr 24 14:29 ..
+-rw-r--r-- 1 devel devel  30014 Apr 24 14:32 CMakeCache.txt
+-rw-r--r-- 1 devel devel  14786 Apr 24 14:32 CMakeDoxyfile.in
+-rw-r--r-- 1 devel devel  20369 Apr 24 14:32 CMakeDoxygenDefaults.cmake
+drwxr-xr-x 6 devel devel   4096 Apr 24 14:34 CMakeFiles
+-rw-r--r-- 1 devel devel   1743 Apr 24 14:32 cmake_install.cmake
+-rw-r--r-- 1 devel devel 685568 Apr 24 14:34 firmware.uf2
+-rw-r--r-- 1 devel devel 425345 Apr 24 14:33 frozen_content.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 frozen_mpy
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:32 generated
+drwxr-xr-x 5 devel devel   4096 Apr 24 14:33 genhdr
+-rw-r--r-- 1 devel devel   9068 Apr 24 14:32 Makefile
+drwxr-xr-x 5 devel devel   4096 Apr 24 14:34 micropython
+-rw-r--r-- 1 devel devel     58 Apr 24 14:32 pico_flash_region.ld
+-rw-r--r-- 1 devel devel  16832 Apr 24 14:33 pins_pico_ice.c
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 pioasm
+drwxr-xr-x 3 devel devel   4096 Apr 24 14:33 pioasm-install
+
