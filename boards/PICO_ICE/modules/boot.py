@@ -27,6 +27,7 @@ ICE_SDA = None
 ICE_SI = None
 ICE_SO = None
 ICE_SS = None
+ICE_CLK = None
 LED_B = None
 LED_G = None
 LED_R = None
@@ -52,6 +53,7 @@ if "pico2-ice" in os.uname().machine:
 	LED_B = 9
 	ICE_27 = 20
 	ICE_35 = 21
+	ICE_CLK = 21
 	ICE_20 = 22
 	ICE_19 = 23
 	ICE_26 = 24
@@ -109,8 +111,11 @@ elif "pico-ice" in os.uname().machine:
 	ICE_35 = 24
 	CLKOUT = 25
 	ADC0 = 26
+	ICE_DONE = 26
 	ADC1 = 27
 	ADC2 = 28
 	ADC3 = 29
+	ICE_RST = 27
+	ICE_CLK = 24
 
 del os
