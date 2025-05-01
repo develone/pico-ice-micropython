@@ -1,3 +1,30 @@
+04/30/25
+git clone https://github.com/develone/pico-ice-micropython.git -b test-dev
+cd pico-ice-micropython/
+commit 829cd9abcb1e40a376e44684f26a3658cf8ce009 (HEAD -> test-dev, origin/test-dev)
+Author: Edward Vidal Jr <develone@sbcglobal.net>
+Date:   Wed Apr 30 12:12:52 2025 -0600
+
+    ice_45 ice_47 swapped ice_48 ice_44 swapped
+git submodule update --init lib/micropython
+git submodule update --init lib/pico-ice-mpy-module
+cd lib/pico-ice-mpy-module && git submodule update --init pico-ice-sdk && cd ../..
+make -C lib/micropython/mpy-cross -j4
+make -C lib/micropython/ports/rp2 submodules
+
+cd boards/PICO_ICE
+mkdir build-rp2040 && cd build-rp2040
+cmake -DPICO_BOARD=pico_ice ..
+make -j8
+mkdir build-rp2350 && cd build-rp2350
+cmake -DPICO_BOARD=pico2_ice ..
+make -j8
+
+devel@pi5-90:~/master-repos/pico-ice-micropython $ shasum pico2-ice-uf2/firmware.uf2 
+e81465d0089a3303e9dc07be8fec2b566c983ab1  pico2-ice-uf2/firmware.uf2
+devel@pi5-90:~/master-repos/pico-ice-micropython $ shasum pico-ice-uf2/firmware.uf2 
+359eab6ca364ba9f29a3ecb78b27d17a5dc3f644  pico-ice-uf2/firmware.uf2
+
 04/24/25 updated main & test-dev branches
 https://github.com/develone/pico-ice-micropython/tree/test-dev#
 devel@pi5-90:~ $ git clone https://github.com/develone/pico-ice-micropython.git -b test-dev
